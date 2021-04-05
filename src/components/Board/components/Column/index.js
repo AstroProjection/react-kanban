@@ -58,7 +58,7 @@ function Column({
               ) : (
                 <div className='react-kanban-card-skeleton' />
               )}
-              {allowColumnFooter &&  <ColumnFooter>{allowColumnFooter}</ColumnFooter>}
+              {true &&  <ColumnFooter>test</ColumnFooter>}
             </DroppableColumn>
           </div>
         )
