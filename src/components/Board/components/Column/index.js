@@ -52,7 +52,7 @@ function Column({
                     renderCard={(dragging) => renderCard(children, card, dragging)}
                     disableCardDrag={disableCardDrag}
                   >
-                    {card}
+                    card-{card}
                   </Card>
                 ))
               ) : (
