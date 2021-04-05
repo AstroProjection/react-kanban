@@ -72,6 +72,7 @@ render(
     onColumnRename={console.log}
     onCardRemove={console.log}
     initialBoard={board}
+    allowColumnFooter={<button onClick={()=>alert('clicked custom component button')}>Button</button>}
   />,
   document.getElementById('app')
 )

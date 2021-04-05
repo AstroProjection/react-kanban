@@ -3,6 +3,7 @@ import { Draggable } from 'react-beautiful-dnd'
 import Card from './components/Card'
 import withDroppable from '../../../withDroppable'
 import CardAdder from './components/CardAdder'
+import ColumnFooter from './components/ColumnFooter'
 import { pickPropOut } from '@services/utils'
 
 const ColumnEmptyPlaceholder = forwardRef((props, ref) => (
@@ -20,12 +21,12 @@ function Column({
   disableCardDrag,
   onCardNew,
   allowAddCard,
+  allowColumnFooter
 }) {
   return (
     <Draggable draggableId={`column-draggable-${children.id}`} index={columnIndex} isDragDisabled={disableColumnDrag}>
       {(columnProvided) => {
         const draggablePropsWithoutStyle = pickPropOut(columnProvided.draggableProps, 'style')
-
         return (
           <div
             ref={columnProvided.innerRef}
@@ -57,6 +58,7 @@ function Column({
               ) : (
                 <div className='react-kanban-card-skeleton' />
               )}
+              {allowColumnFooter &&  <ColumnFooter>{allowColumnFooter}</ColumnFooter>}
             </DroppableColumn>
           </div>
         )
