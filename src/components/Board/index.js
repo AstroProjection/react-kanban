@@ -34,7 +34,7 @@ function UncontrolledBoard({
   renderColumnHeader,
   allowRemoveColumn,
   allowRenameColumn,
-  allowColumnFooter,
+  renderColumnFooter,
   onColumnRename,
   onCardNew,
   renderCard,
@@ -142,7 +142,7 @@ function UncontrolledBoard({
       disableCardDrag={disableCardDrag}
       onCardNew={(column, card) => handleDraftCardAdd(column, card, allowAddCard)}
       allowAddCard={allowAddCard && onNewCardConfirm}
-      allowColumnFooter={allowColumnFooter}
+      renderColumnFooter={(column) => (renderColumnFooter ? renderColumnFooter(column) : <></>)}
     >
       {board}
     </BoardContainer>
@@ -154,7 +154,7 @@ function ControlledBoard({
   onCardDragEnd,
   onColumnDragEnd,
   allowAddColumn,
-  allowColumnFooter,
+  renderColumnFooter,
   renderColumnAdder,
   onNewColumnConfirm,
   onColumnRemove,
@@ -194,7 +194,7 @@ function ControlledBoard({
           </DefaultCard>
         )
       }}
-      allowColumnFooter={allowColumnFooter}
+      renderColumnFooter={(column) => (renderColumnFooter ? renderColumnFooter(column) : <></>)}
       allowRemoveColumn={allowRemoveColumn}
       onColumnRemove={onColumnRemove}
       allowRenameColumn={allowRenameColumn}
@@ -217,7 +217,7 @@ function BoardContainer({
   allowRemoveColumn,
   onColumnRemove,
   allowRenameColumn,
-  allowColumnFooter,
+  renderColumnFooter,
   onColumnRename,
   onColumnDragEnd,
   onCardDragEnd,
@@ -258,7 +258,7 @@ function BoardContainer({
                   </DefaultColumnHeader>
                 )
               }
-              allowColumnFooter={allowColumnFooter}
+              renderColumnFooter={(column) => (renderColumnFooter ? renderColumnFooter(column) : <></>)}
               disableColumnDrag={disableColumnDrag}
               disableCardDrag={disableCardDrag}
               onCardNew={onCardNew}
