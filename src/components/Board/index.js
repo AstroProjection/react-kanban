@@ -142,7 +142,7 @@ function UncontrolledBoard({
       disableCardDrag={disableCardDrag}
       onCardNew={(column, card) => handleDraftCardAdd(column, card, allowAddCard)}
       allowAddCard={allowAddCard && onNewCardConfirm}
-      renderColumnFooter={(column) => (renderColumnFooter ? renderColumnFooter(column) : <></>)}
+      renderColumnFooter={renderColumnFooter}
     >
       {board}
     </BoardContainer>
@@ -194,7 +194,7 @@ function ControlledBoard({
           </DefaultCard>
         )
       }}
-      renderColumnFooter={(column) => (renderColumnFooter ? renderColumnFooter(column) : <></>)}
+      renderColumnFooter={renderColumnFooter}
       allowRemoveColumn={allowRemoveColumn}
       onColumnRemove={onColumnRemove}
       allowRenameColumn={allowRenameColumn}
@@ -258,7 +258,7 @@ function BoardContainer({
                   </DefaultColumnHeader>
                 )
               }
-              renderColumnFooter={(column) => (renderColumnFooter ? renderColumnFooter(column) : <></>)}
+              renderColumnFooter={renderColumnFooter.bind(this,column)}
               disableColumnDrag={disableColumnDrag}
               disableCardDrag={disableCardDrag}
               onCardNew={onCardNew}
