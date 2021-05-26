@@ -3,7 +3,7 @@ import { Draggable } from 'react-beautiful-dnd'
 import Card from './components/Card'
 import withDroppable from '../../../withDroppable'
 import CardAdder from './components/CardAdder'
-import ColumnFooter from './components/ColumnFooter'
+import ColumnFooter from './components/ColumnFooter/ColumnFooter'
 import { pickPropOut } from '@services/utils'
 
 const ColumnEmptyPlaceholder = forwardRef((props, ref) => (
@@ -58,8 +58,8 @@ function Column({
               ) : (
                 <div className='react-kanban-card-skeleton' />
               )}
-              {renderColumnFooter &&  <ColumnFooter>{renderColumnFooter()}</ColumnFooter>}
             </DroppableColumn>
+            {renderColumnFooter && <ColumnFooter>{renderColumnFooter()}</ColumnFooter>}
           </div>
         )
       }}
