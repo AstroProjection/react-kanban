@@ -13,7 +13,7 @@ function ColumnFooter({ children }) {
             ref={provided.innerRef}
             {...provided.draggableProps}
             {...provided.dragHandleProps}
-            data-testid={`column-footer-${children.id}`}
+            data-testid={`column-footer-${children.id || 'default-elem'}`}
           >
             {children}
           </div>
